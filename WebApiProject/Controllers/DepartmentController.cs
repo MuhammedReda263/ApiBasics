@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApiProject.DTO;
 using WebApiProject.Models;
@@ -16,6 +17,7 @@ namespace WebApiProject.Controllers
             repositery = repo;
         }
         [HttpGet]
+        [Authorize]
         public IActionResult GetAllDepartments()
         {
             List<Department> departments = repositery.GetAllDepartments();
